@@ -112,11 +112,6 @@ export class CallerModule
     public root: string;
 
     /**
-     * The exact location of the caller.
-     */
-    public location: string;
-
-    /**
      * The CallSite of the caller.
      */
     public callSite: CallSite;
@@ -145,6 +140,6 @@ export class CallerModule
      */
     public toString()
     {
-        return this.location = this.path + ':' + this.callSite.getLineNumber() + ':' + this.callSite.getColumnNumber();
+        return this.path + ':' + this.callSite.getLineNumber() + ':' + this.callSite.getColumnNumber();
     }
 }
