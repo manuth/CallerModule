@@ -1,0 +1,38 @@
+{
+  "name": "caller-module",
+  "version": "0.0.1",
+  "description": "Provides information about the caller of a method and its module.",
+  "main": "out/src/main.js",
+  "types": "out/src/main.d.ts",
+  "scripts": {
+    "watch": "tsc -watch -p ./",
+    "compile": "tsc -p ./",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuth/CallerModule.git"
+  },
+  "author": "manuth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manuth/CallerModule/issues"
+  },
+  "homepage": "https://github.com/manuth/CallerModule#readme",
+  "keywords": [
+    "path",
+    "module",
+    "root",
+    "caller"
+  ],
+  "devDependencies": {
+    "@types/callsite": "^1.0.30",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.0.26",
+    "mocha": "^3.5.0",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "v8-callsites": "^1.2.1"
+  }
+}
