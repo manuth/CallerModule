@@ -68,13 +68,12 @@ export function GetCallerModule(method?: Function | number, level?: number): Cal
             let root = path.dirname(result.path);
             let isModuleRoot: Function = (fileName: string) =>
             {
-                let fileEntries = fs.readdirSync(fileName);
-                let directories: string[] = fs.readdirSync(fileName).filter(
+                let files: string[] = fs.readdirSync(fileName).filter(
                     (value, index, array) =>
                     {
-                        return fs.lstatSync(path.join(fileName, value)).isDirectory();
+                        return !fs.lstatSync(path.join(fileName, value)).isDirectory();
                     });
-                return directories.indexOf('node_modules') > 0;
+                return files.indexOf('package.json') > 0;
             }
 
             while (!isModuleRoot(root))
