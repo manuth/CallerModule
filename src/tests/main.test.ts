@@ -3,12 +3,12 @@ import * as callerModule from '../main';
 
 describe('CallerModule', () =>
 {
-  it('Determining the caller-module of `testCallerModule`... (exceptiong `mocha`)', function testCallerModule()
+  it('Determining the caller of `testCallerModule`... (exceptiong `mocha`)', function testCallerModule()
   {
     assert.strictEqual(callerModule.GetCallerModule(testCallerModule).name, 'mocha');
   });
-  it ('Determining the caller of the current context... (excepting `CallerModule`)', () =>
+  it ('Determining the caller of the current context... (excepting `caller-module`)', () =>
   {
-    assert.strictEqual(callerModule.GetCallerModule().name, 'CallerModule');
+    assert.strictEqual(callerModule.GetCallerModule().name, 'caller-module');
   });
 });

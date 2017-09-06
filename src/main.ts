@@ -61,36 +61,39 @@ export function GetCallerModule(method?: Function | number, level?: number): Cal
         result.root = result.callSite.isNative() ? 'V8' : 'node';
     }
     /* if the caller is the topmost module */
-    else if (result.path.split(path.sep).indexOf('node_modules') < 0)
-    {
-        let root = path.dirname(result.path);
-        let isModuleRoot: Function = (fileName: string) =>
-        {
-            let fileEntries = fs.readdirSync(fileName);
-            let directories: string[] = fs.readdirSync(fileName).filter(
-                (value, index, array) =>
-                {
-                    return fs.lstatSync(path.join(fileName, value)).isDirectory();
-                });
-            return directories.indexOf('node_modules') > 0;
-        }
-
-        while (!isModuleRoot(root))
-        {
-            root = path.resolve(root, '..');
-        }
-
-        result.root = root;
-        result.name = path.relative(path.resolve(result.root, '..'), result.root);
-    }
-    /* if the caller is a submodule */
     else
     {
-        let pathTree = result.path.split(path.sep);
-        let moduleFolderIndex = pathTree.indexOf('node_modules') + 1;
+        if (result.path.split(path.sep).indexOf('node_modules') < 0)
+        {
+            let root = path.dirname(result.path);
+            let isModuleRoot: Function = (fileName: string) =>
+            {
+                let fileEntries = fs.readdirSync(fileName);
+                let directories: string[] = fs.readdirSync(fileName).filter(
+                    (value, index, array) =>
+                    {
+                        return fs.lstatSync(path.join(fileName, value)).isDirectory();
+                    });
+                return directories.indexOf('node_modules') > 0;
+            }
 
-        result.name = pathTree[moduleFolderIndex];
-        result.root = pathTree.slice(0, moduleFolderIndex + 1).join(path.sep);
+            while (!isModuleRoot(root))
+            {
+                root = path.resolve(root, '..');
+            }
+
+            result.root = root;
+        }
+        /* if the caller is a submodule */
+        else
+        {
+            let pathTree = result.path.split(path.sep);
+            let moduleFolderIndex = pathTree.indexOf('node_modules') + 1;
+
+            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(path.sep);
+        }
+
+        result.name = require(path.join(result.root, 'package.json')).name;
     }
 
     return result;
