@@ -1,6 +1,6 @@
 {
   "name": "caller-module",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Provides information about the caller of a method and its module",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "license": "MIT",
