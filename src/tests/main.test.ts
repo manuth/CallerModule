@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import * as callerModule from "../main";
+import * as callerModule from "..";
 
 describe("CallerModule", () =>
 {

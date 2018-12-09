@@ -2,8 +2,8 @@
   "name": "caller-module",
   "version": "0.0.2",
   "description": "Provides information about the caller of a method and its module.",
-  "main": "lib/main.js",
-  "types": "lib/main.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "watch": "tsc -watch -p ./",
     "compile": "tsc -p ./",
