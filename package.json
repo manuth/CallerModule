@@ -1,7 +1,7 @@
 {
   "name": "caller-module",
   "version": "0.0.2",
-  "description": "Provides information about the caller of a method and its module.",
+  "description": "Provides information about the caller of a method and its module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

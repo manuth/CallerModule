@@ -1,5 +1,5 @@
 # CallerModule
-Provides information about the caller of a method and its module.
+Provides information about the caller of a method and its module
 
 This module provides the abillity to determine what module performed the most recent function call. It additionally provides information about the module such as:
 
