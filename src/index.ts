@@ -1,8 +1,8 @@
 import { CallSite } from "callsite";
-import * as fs from "fs";
-import * as path from "path";
+import FileSystem = require("fs");
+import Path = require("path");
 import { isNullOrUndefined } from "util";
-import stackTrace = require("v8-callsites");
+import StackTrace = require("v8-callsites");
 
 /**
  * Gets the module that called a specified method at a specified stacktrace-level.
@@ -47,12 +47,12 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         frames = level;
     }
 
-    stack = stackTrace(frames, origin);
+    stack = StackTrace(frames, origin);
 
     result = new CallerModule(stack[stack.length - 1]);
 
     /* if the caller isn't a module */
-    if (result.path === path.basename(result.path))
+    if (result.path === Path.basename(result.path))
     {
         result.name = result.path;
         result.root = result.callSite.isNative() ? "V8" : "node";
@@ -60,22 +60,22 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     /* if the caller is the topmost module */
     else
     {
-        if (result.path.split(path.sep).indexOf("node_modules") < 0)
+        if (result.path.split(Path.sep).indexOf("node_modules") < 0)
         {
-            let root = path.dirname(result.path);
+            let root = Path.dirname(result.path);
             let isModuleRoot = (fileName: string) =>
             {
-                let files = fs.readdirSync(fileName).filter(
+                let files = FileSystem.readdirSync(fileName).filter(
                     (value, index, array) =>
                     {
-                        return !fs.lstatSync(path.join(fileName, value)).isDirectory();
+                        return !FileSystem.lstatSync(Path.join(fileName, value)).isDirectory();
                     });
                 return files.indexOf("package.json") > 0;
             };
 
             while (!isModuleRoot(root))
             {
-                root = path.resolve(root, "..");
+                root = Path.resolve(root, "..");
             }
 
             result.root = root;
@@ -83,13 +83,13 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         /* if the caller is a submodule */
         else
         {
-            let pathTree = result.path.split(path.sep);
+            let pathTree = result.path.split(Path.sep);
             let moduleFolderIndex = pathTree.indexOf("node_modules") + 1;
 
-            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(path.sep);
+            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(Path.sep);
         }
 
-        result.name = require(path.join(result.root, "package.json")).name;
+        result.name = require(Path.join(result.root, "package.json")).name;
     }
 
     return result;
