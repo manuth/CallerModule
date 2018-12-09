@@ -2,8 +2,28 @@
   "name": "caller-module",
   "version": "0.0.2",
   "description": "Provides information about the caller of a method and its module",
+  "author": "Manuel Thalmann <m@nuth.ch>",
+  "license": "MIT",
+  "keywords": [
+    "path",
+    "module",
+    "root",
+    "caller"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuth/CallerModule.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manuth/CallerModule/issues"
+  },
+  "homepage": "https://github.com/manuth/CallerModule#readme",
   "scripts": {
     "build": "tsc -p .",
     "rebuild": "npm run clean && npm run build",
@@ -13,32 +33,17 @@
     "test": "mocha",
     "prepare": "npm run rebuild"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/manuth/CallerModule.git"
-  },
-  "author": "manuth",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/manuth/CallerModule/issues"
-  },
-  "homepage": "https://github.com/manuth/CallerModule#readme",
-  "keywords": [
-    "path",
-    "module",
-    "root",
-    "caller"
-  ],
-  "devDependencies": {
+  "dependencies": {
     "@types/callsite": "^1.0.30",
+    "v8-callsites": "^1.2.1"
+  },
+  "devDependencies": {
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.12",
     "mocha": "^5.2.0",
     "rimraf": "^2.6.2",
     "tslint": "^5.11.0",
-    "typescript": "^3.2.2"
-  },
-  "dependencies": {
-    "v8-callsites": "^1.2.1"
+    "typescript": "^3.2.2",
+    "typescript-tslint-plugin": "^0.1.2"
   }
 }
