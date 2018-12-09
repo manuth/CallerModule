@@ -15,7 +15,7 @@
 			"runtimeArgs": [],
 			"sourceMaps": true,
 			"outFiles": [
-				"${workspaceRoot}/out/**/*.js"
+				"${workspaceRoot}/lib/**/*.js"
 			]
 		}
 	]

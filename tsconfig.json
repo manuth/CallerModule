@@ -1,7 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "rootDir": "./",
+        "rootDir": "./src",
         "module": "commonjs",
         "lib": [
             "es7"
@@ -12,7 +12,7 @@
             }
         ],
         "target": "es6",
-        "outDir": "./out",
+        "outDir": "./lib",
         "declaration": true,
         "sourceMap": true,
         "resolveJsonModule": true,
@@ -23,9 +23,5 @@
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "downlevelIteration": true
-    },
-    "exclude": [
-      "node_modules",
-      "out"
-    ]
+    }
 }
