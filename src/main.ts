@@ -41,29 +41,13 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         origin = GetCallerModule;
         frames = method;
     }
-    else if (!isNullOrUndefined(level))
+    else if (!isNullOrUndefined(method))
     {
-        origin = method!;
+        origin = method;
         frames = level;
     }
-    else
-    {
-        origin = null!;
-        frames = null!;
-    }
 
-    switch (arguments.length)
-    {
-        case 0:
-            stack = stackTrace(1, GetCallerModule);
-            break;
-        case 1:
-            stack = stackTrace(origin);
-            break;
-        case 2:
-            stack = stackTrace(frames, origin);
-            break;
-    }
+    stack = stackTrace(frames, origin);
 
     result = new CallerModule(stack[stack.length - 1]);
 
