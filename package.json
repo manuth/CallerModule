@@ -5,9 +5,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "watch": "tsc -watch -p ./",
-    "compile": "tsc -p ./",
-    "test": "mocha"
+    "build": "tsc -p .",
+    "rebuild": "npm run clean && npm run build",
+    "watch": "tsc -p . --watch",
+    "clean": "rimraf ./lib",
+    "lint": "tslint -p ./ -t verbose",
+    "test": "mocha",
+    "prepare": "npm run rebuild"
   },
   "repository": {
     "type": "git",
@@ -30,6 +34,7 @@
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.12",
     "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
     "tslint": "^5.11.0",
     "typescript": "^3.2.2"
   },
