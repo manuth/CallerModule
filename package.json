@@ -1,6 +1,6 @@
 {
   "name": "caller-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides information about the caller of a method and its module",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "license": "MIT",
@@ -39,11 +39,11 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.12",
+    "@types/node": "^10.12.18",
     "mocha": "^5.2.0",
-    "rimraf": "^2.6.2",
-    "tslint": "^5.11.0",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.12.0",
     "typescript": "^3.2.2",
-    "typescript-tslint-plugin": "^0.1.2"
+    "typescript-tslint-plugin": "^0.2.1"
   }
 }

@@ -1,5 +1,5 @@
-import * as assert from "assert";
-import * as callerModule from "..";
+import Assert = require("assert");
+import CallerModule = require("..");
 
 suite("CallerModule", () =>
 {
@@ -7,13 +7,13 @@ suite("CallerModule", () =>
         "Determining the caller of `testCallerModule`…",
         function testCallerModule()
         {
-            assert.strictEqual(callerModule.GetCallerModule(testCallerModule).name, "mocha");
+            Assert.strictEqual(CallerModule.GetCallerModule(testCallerModule).name, "mocha");
         });
 
     test(
         "Determining the caller of the current context…",
         () =>
         {
-            assert.strictEqual(callerModule.GetCallerModule().name, "caller-module");
+            Assert.strictEqual(CallerModule.GetCallerModule().name, "caller-module");
         });
 });
