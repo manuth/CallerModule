@@ -17,7 +17,7 @@ npm install --save caller-module
 ## Usage
 TypeScript-example:
 ```ts
-import * as callerModule from 'caller-module';
+import CallerModule = require("caller-module");
 
 console.log(callerModule.GetCallerModule().name); // Logs the name of your module. 
 ```
@@ -37,7 +37,7 @@ console.log(callerModule().name);
 
 ### Example
 ```ts
-import * as callerModule from 'caller-module';
+import CallerModule = require("caller-module");
 
 function test
 {
