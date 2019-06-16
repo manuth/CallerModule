@@ -38,6 +38,8 @@
     "v8-callsites": "^1.2.1"
   },
   "devDependencies": {
+    "@manuth/tsconfig": "^1.1.0",
+    "@manuth/tslint-presets": "^1.0.0",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.18",
     "mocha": "^5.2.0",
