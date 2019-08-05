@@ -1,6 +1,6 @@
 {
   "name": "caller-module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Provides information about the caller of a method and its module",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "license": "MIT",
@@ -38,8 +38,8 @@
     "v8-callsites": "^1.2.1"
   },
   "devDependencies": {
-    "@manuth/tsconfig": "^1.2.1",
-    "@manuth/tslint-presets": "^1.0.2",
+    "@manuth/tsconfig": "^1.2.2",
+    "@manuth/tslint-presets": "^1.0.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.6.9",
     "mocha": "^6.2.0",
