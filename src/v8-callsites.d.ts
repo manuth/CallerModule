@@ -1,5 +1,16 @@
 declare module "v8-callsites"
 {
+    import { CallSite } from "callsite";
+
+    /**
+     * Captures a specific callstack.
+     *
+     * @param origin
+     * The method to start to record.
+     *
+     * @returns
+     * The captured callstack.
+     */
     function stack(origin?: () => any): CallSite[];
 
     /**
@@ -14,9 +25,7 @@ declare module "v8-callsites"
      * @returns
      * The captured callstack.
      */
-    function stack(frames: number | (() => any), origin: () => any): CallSite[];
-
-    import { CallSite } from "callsite";
+    function stack(frames: number, origin: () => any): CallSite[];
 
     export = stack;
 }
