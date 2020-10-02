@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
   - The development environment
   - The logic for determining the caller-module
+  - The module-name to `@manuth/caller-module`
 
 [Show differences](https://github.com/manuth/CallerModule/compare/v1.0.4...v1.0.5)
 
