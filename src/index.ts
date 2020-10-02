@@ -2,7 +2,7 @@ import { Package } from "@manuth/package-json-editor";
 import { CallSite } from "callsite";
 import pkgUp = require("pkg-up");
 import { basename, dirname } from "upath";
-import StackTrace = require("v8-callsites");
+import stack = require("v8-callsites");
 
 /**
  * Gets the module that called a specified method at a specified stacktrace-level.
@@ -38,7 +38,7 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
 {
     let origin: () => any;
     let frames: number;
-    let stack: CallSite[] = [];
+    let stackTrace: CallSite[] = [];
     let result: CallerModule;
 
     if (typeof method === "number")
@@ -52,8 +52,8 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         frames = level;
     }
 
-    stack = StackTrace(frames, origin);
-    result = new CallerModule(stack[stack.length - 1]);
+    stackTrace = stack(frames, origin);
+    result = new CallerModule(stackTrace[stackTrace.length - 1]);
 
     /* if the caller isn't a module */
     if (result.path === basename(result.path))
