@@ -1,6 +1,7 @@
-import { lstatSync, readdirSync } from "fs";
+import { Package } from "@manuth/package-json-editor";
 import { CallSite } from "callsite";
-import { basename, dirname, join, normalize, resolve, sep } from "upath";
+import pkgUp = require("pkg-up");
+import { basename, dirname } from "upath";
 import StackTrace = require("v8-callsites");
 
 /**
@@ -39,7 +40,6 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     let frames: number;
     let stack: CallSite[] = [];
     let result: CallerModule;
-    let pathTree: string[];
 
     if (typeof method === "number")
     {
@@ -54,7 +54,6 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
 
     stack = StackTrace(frames, origin);
     result = new CallerModule(stack[stack.length - 1]);
-    pathTree = normalize(result.path).split(sep);
 
     /* if the caller isn't a module */
     if (result.path === basename(result.path))
@@ -64,38 +63,13 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     }
     else
     {
-        /* if the caller isn't a dependency */
-        if (!pathTree.includes("node_modules"))
-        {
-            let root = dirname(result.path);
-
-            let isModuleRoot = (fileName: string): boolean =>
+        let packagePath = pkgUp.sync(
             {
-                let files = readdirSync(fileName).filter(
-                    (value, index, array) =>
-                    {
-                        return !lstatSync(join(fileName, value)).isDirectory();
-                    });
+                cwd: dirname(result.path)
+            });
 
-                return files.includes("package.json");
-            };
-
-            while (!isModuleRoot(root))
-            {
-                root = resolve(root, "..");
-            }
-
-            result.root = root;
-        }
-        /* if the caller is a submodule */
-        else
-        {
-            let moduleFolderIndex = pathTree.indexOf("node_modules");
-            result.root = pathTree.slice(0, moduleFolderIndex + 2).join(sep);
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        result.name = require(join(result.root, "package.json")).name;
+        result.root = dirname(packagePath);
+        result.name = new Package(packagePath).Name;
     }
 
     return result;

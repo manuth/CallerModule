@@ -39,7 +39,9 @@
     "prepare": "npm run rebuild"
   },
   "dependencies": {
+    "@manuth/package-json-editor": "^1.4.2",
     "@types/callsite": "^1.0.30",
+    "pkg-up": "^3.1.0",
     "upath": "^1.2.0",
     "v8-callsites": "^1.2.1"
   },
