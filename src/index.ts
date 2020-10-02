@@ -1,7 +1,6 @@
+import { lstatSync, readdirSync } from "fs";
 import { CallSite } from "callsite";
-import FileSystem = require("fs");
-import Path = require("path");
-import { isNullOrUndefined } from "util";
+import { basename, dirname, join, normalize, resolve, sep } from "upath";
 import StackTrace = require("v8-callsites");
 
 /**
@@ -10,6 +9,7 @@ import StackTrace = require("v8-callsites");
  * @param level
  * The stacktrace-level whose caller is to be determined.
  */
+// eslint-disable-next-line jsdoc/require-jsdoc
 export function GetCallerModule(level?: number): CallerModule;
 
 /**
@@ -18,6 +18,7 @@ export function GetCallerModule(level?: number): CallerModule;
  * @param method
  * The method whose caller is to be determined.
  */
+// eslint-disable-next-line jsdoc/require-jsdoc
 export function GetCallerModule(method: () => any): CallerModule;
 
 /**
@@ -28,6 +29,9 @@ export function GetCallerModule(method: () => any): CallerModule;
  *
  * @param level
  * The stacktrace-level whose caller is to be determined.
+ *
+ * @returns
+ * The caller-module.
  */
 export function GetCallerModule(method?: number | (() => any), level?: number): CallerModule
 {
@@ -35,47 +39,50 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     let frames: number;
     let stack: CallSite[] = [];
     let result: CallerModule;
+    let pathTree: string[];
 
     if (typeof method === "number")
     {
         origin = GetCallerModule;
         frames = method;
     }
-    else if (!isNullOrUndefined(method))
+    else if (method)
     {
         origin = method;
         frames = level;
     }
 
     stack = StackTrace(frames, origin);
-
     result = new CallerModule(stack[stack.length - 1]);
+    pathTree = normalize(result.path).split(sep);
 
     /* if the caller isn't a module */
-    if (result.path === Path.basename(result.path))
+    if (result.path === basename(result.path))
     {
         result.name = result.path;
         result.root = result.callSite.isNative() ? "V8" : "node";
     }
-    /* if the caller is the topmost module */
     else
     {
-        if (result.path.split(Path.sep).indexOf("node_modules") < 0)
+        /* if the caller isn't a dependency */
+        if (!pathTree.includes("node_modules"))
         {
-            let root = Path.dirname(result.path);
-            let isModuleRoot = (fileName: string) =>
+            let root = dirname(result.path);
+
+            let isModuleRoot = (fileName: string): boolean =>
             {
-                let files = FileSystem.readdirSync(fileName).filter(
+                let files = readdirSync(fileName).filter(
                     (value, index, array) =>
                     {
-                        return !FileSystem.lstatSync(Path.join(fileName, value)).isDirectory();
+                        return !lstatSync(join(fileName, value)).isDirectory();
                     });
-                return files.indexOf("package.json") > 0;
+
+                return files.includes("package.json");
             };
 
             while (!isModuleRoot(root))
             {
-                root = Path.resolve(root, "..");
+                root = resolve(root, "..");
             }
 
             result.root = root;
@@ -83,13 +90,14 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         /* if the caller is a submodule */
         else
         {
-            let pathTree = result.path.split(Path.sep);
-            let moduleFolderIndex = pathTree.indexOf("node_modules") + 1;
+            let pathTree = result.path.split(sep);
+            let moduleFolderIndex = pathTree.indexOf("node_modules");
 
-            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(Path.sep);
+            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(sep);
         }
 
-        result.name = require(Path.join(result.root, "package.json")).name;
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        result.name = require(join(result.root, "package.json")).name;
     }
 
     return result;
@@ -136,8 +144,11 @@ export class CallerModule
 
     /**
      * Gets a string that represents the object.
+     *
+     * @returns
+     * A string that represents the object.
      */
-    public toString()
+    public toString(): string
     {
         return `${this.path}:${this.callSite.getLineNumber()}:${this.callSite.getColumnNumber()}`;
     }
