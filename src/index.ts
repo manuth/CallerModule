@@ -91,7 +91,7 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         else
         {
             let moduleFolderIndex = pathTree.indexOf("node_modules");
-            result.root = pathTree.slice(0, moduleFolderIndex + 1).join(sep);
+            result.root = pathTree.slice(0, moduleFolderIndex + 2).join(sep);
         }
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
