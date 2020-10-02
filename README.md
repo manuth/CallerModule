@@ -11,24 +11,24 @@ This module provides the abillity to determine what module performed the most re
 ## Installation
 You can install this package using npm:
 ```cmd
-npm install --save caller-module
+npm install --save @manuth/caller-module
 ```
 
 ## Usage
 TypeScript-example:
 ```ts
-import CallerModule = require("caller-module");
+import { GetCallerModule } from "@manuth/caller-module";
 
-console.log(callerModule.GetCallerModule().name); // Logs the name of your module. 
+console.log(GetCallerModule().name); // Logs the name of your module. 
 ```
 
 ```js
-const callerModule = require('caller-module').GetCallerModule;
-console.log(callerModule().name);
+const { GetCallerModule } = require("@manuth/caller-module");
+console.log(GetCallerModule().name);
 ```
 
 ### Documentation
-`require('caller-module').GetCallerModule([method: function], [level: number])`
+`GetCallerModule([method: function], [level: number])`
  - `method`:  
    The method whose caller is to be determined.  
    Defaults to the GetCallerModule-method.
@@ -37,7 +37,7 @@ console.log(callerModule().name);
 
 ### Example
 ```ts
-import CallerModule = require("caller-module");
+import { GetCallerModule } from "@manuth/caller-module";
 
 function test
 {
@@ -56,10 +56,10 @@ function test2()
 
 function last()
 {
-    console.log(callerModule.GetCallerModule().name); // Your module's folder name.
-    console.log(callerModule.GetCallerModule().callSite.getFunctionName()); // last
-    console.log(callerModule.GetCallerModule(2).callSite.getFunctionName()); // test2
-    console.log(callerModule.GetCallerModule(last).callSite.getFunctionName()); // test2
-    console.log(callerModule.GetCallerModule(last, 2).callSite.getFunctionName()); // test1
+    console.log(GetCallerModule().name); // Your module's folder name.
+    console.log(GetCallerModule().callSite.getFunctionName()); // last
+    console.log(GetCallerModule(2).callSite.getFunctionName()); // test2
+    console.log(GetCallerModule(last).callSite.getFunctionName()); // test2
+    console.log(GetCallerModule(last, 2).callSite.getFunctionName()); // test1
 }
 ```
