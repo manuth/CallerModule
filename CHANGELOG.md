@@ -5,9 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## CallerModule [Unreleased]
-  - Initial release
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.4...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.4...v1.0.5)
+
+## CallerModule v1.0.5
+### Updated
+  - The development environment
+  - The logic for determining the caller-module
+  - The module-name to `@manuth/caller-module`
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.4...v1.0.5)
 
 
 ## CallerModule v1.0.4
