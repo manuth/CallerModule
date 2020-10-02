@@ -90,9 +90,7 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
         /* if the caller is a submodule */
         else
         {
-            let pathTree = result.path.split(sep);
             let moduleFolderIndex = pathTree.indexOf("node_modules");
-
             result.root = pathTree.slice(0, moduleFolderIndex + 1).join(sep);
         }
 
