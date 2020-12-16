@@ -10,7 +10,6 @@ import stack = require("v8-callsites");
  * @param level
  * The stacktrace-level whose caller is to be determined.
  */
-// eslint-disable-next-line jsdoc/require-jsdoc
 export function GetCallerModule(level?: number): CallerModule;
 
 /**
@@ -19,7 +18,6 @@ export function GetCallerModule(level?: number): CallerModule;
  * @param method
  * The method whose caller is to be determined.
  */
-// eslint-disable-next-line jsdoc/require-jsdoc
 export function GetCallerModule(method: () => any): CallerModule;
 
 /**
