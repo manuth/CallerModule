@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule v1.0.6
 ### Fixed
-  - All vulnerabilities
+  - All vulnerabilities in dependencies
 
 ### Updated
   - All dependencies
