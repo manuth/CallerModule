@@ -6,11 +6,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule [Unreleased]
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...v1.0.8)
+
+## CallerModule v1.0.8
+### Fixed
+  - Broken drone-pipelines
+  - Broken Auto-Merge workflow
+
+### Updated
+  - All dependencies
+  - Drone-pipelines to use small-sized images
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...v1.0.8)
 
 ## CallerModule v1.0.7
 ### Fixed
   - All vulnerabilities in dependencies
+
+### Added
+  - A workflow for merging Dependabot-PRs
+  - A workflow for analyzing the code
 
 ### Updated
   - All dependencies
