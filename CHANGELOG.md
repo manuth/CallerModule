@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## CallerModule [Unreleased]
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...v1.0.8)
+
+## CallerModule v1.0.8
 ### Fixed
   - Broken drone-pipelines
   - Broken Auto-Merge workflow
@@ -13,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - All dependencies
   - Drone-pipelines to use small-sized images
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...v1.0.8)
 
 ## CallerModule v1.0.7
 ### Fixed
