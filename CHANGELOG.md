@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## CallerModule [Unreleased]
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.9...dev)
+
+## CallerModule v1.0.9
 ### Fixed
   - Drone-pipelines for multi-digit version-numbers
   - Vulnerabilities in dependencies
@@ -12,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
   - All dependencies
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.7...v1.0.8)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.8...v1.0.9)
 
 ## CallerModule v1.0.8
 ### Fixed
