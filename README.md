@@ -56,7 +56,7 @@ function test2()
 
 function last()
 {
-    console.log(GetCallerModule().name); // Your module's folder name.
+    console.log(GetCallerModule().name); // Your module's name.
     console.log(GetCallerModule().callSite.getFunctionName()); // last
     console.log(GetCallerModule(2).callSite.getFunctionName()); // test2
     console.log(GetCallerModule(last).callSite.getFunctionName()); // test2
