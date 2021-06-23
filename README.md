@@ -1,7 +1,7 @@
 # CallerModule
 Provides information about the caller of a method and its module
 
-This module provides the abillity to determine what module performed the most recent function call. It additionally provides information about the module such as:
+This module provides the ability to determine what module performed the most recent function call. It additionally provides information about the module such as:
 
 - Its name
 - Its root-path
@@ -56,7 +56,7 @@ function test2()
 
 function last()
 {
-    console.log(GetCallerModule().name); // Your module's folder name.
+    console.log(GetCallerModule().name); // Your module's name.
     console.log(GetCallerModule().callSite.getFunctionName()); // last
     console.log(GetCallerModule(2).callSite.getFunctionName()); // test2
     console.log(GetCallerModule(last).callSite.getFunctionName()); // test2

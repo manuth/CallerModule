@@ -7,16 +7,10 @@ suite(
     "CallerModule", () =>
     {
         test(
-            "Determining the caller of `testCallerModule`…",
-            function testCallerModule()
-            {
-                strictEqual(GetCallerModule(testCallerModule).name, "mocha");
-            });
-
-        test(
-            "Determining the caller of the current context…",
-            () =>
-            {
-                strictEqual(GetCallerModule().name, new Package(join(__dirname, "..", "..", "package.json")).Name);
-            });
+                "Checking whether caller-modules are detected correctly…",
+                function test()
+                {
+                    strictEqual(GetCallerModule(test).name, "mocha");
+                    strictEqual(GetCallerModule().name, new Package(join(__dirname, "..", "..", "package.json")).Name);
+                });
     });

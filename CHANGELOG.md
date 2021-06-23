@@ -6,7 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule [Unreleased]
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.9...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.10...dev)
+
+## CallerModule v1.0.10
+### Fixed
+  - Vulnerabilities in dependencies
+
+### Updated
+  - All dependencies
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.9...v1.0.10)
 
 ## CallerModule v1.0.9
 ### Fixed
