@@ -1,6 +1,6 @@
 {
   "name": "@manuth/caller-module",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Provides information about the caller of a method and its module",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "license": "MIT",
@@ -46,9 +46,9 @@
     "v8-callsites": "^1.2.1"
   },
   "devDependencies": {
-    "@manuth/eslint-plugin-typescript": "^3.1.0",
-    "@manuth/tsconfig": "^2.0.1",
-    "@manuth/typescript-eslint-plugin": "^1.4.0",
+    "@manuth/eslint-plugin-typescript": "^3.1.2",
+    "@manuth/tsconfig": "^2.0.2",
+    "@manuth/typescript-eslint-plugin": "^1.4.1",
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.12.4",
     "@types/ts-nameof": "^4.2.1",
@@ -63,6 +63,7 @@
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "ts-nameof": "^5.0.0",
+    "ts-node": "^10.0.0",
     "ts-patch": "^1.3.3",
     "tslint": "^6.1.3",
     "typescript": "^4.3.4"

@@ -6,7 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule [Unreleased]
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.10...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.11...dev)
+
+## CallerModule v1.0.11
+### Fixed
+  - `ts-patch`-installation by adding `ts-node` to `devDependencies`
+
+### Updated
+  - All dependencies
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.10...v1.0.11)
 
 ## CallerModule v1.0.10
 ### Fixed
