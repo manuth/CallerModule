@@ -6,7 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule [Unreleased]
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.11...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.12...dev)
+
+## CallerModule v1.0.12
+### Fixed
+  - Vulnerabilities in dependencies
+  - Drone publish-scripts
+
+### Added
+  - Support for parallel step-execution in drone-pipelines
+
+### Updated
+  - All dependencies
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.11...v1.0.12)
 
 ## CallerModule v1.0.11
 ### Fixed
