@@ -6,7 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## CallerModule [Unreleased]
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.12...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.13...dev)
+
+## CallerModule v1.0.13
+### Fixed
+  - Broken drone pipeline
+  - Vulnerabilities in dependencies
+
+### Updated
+  - All dependencies
+  - Linting environment
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.12...v1.0.13)
 
 ## CallerModule v1.0.12
 ### Fixed
