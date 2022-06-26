@@ -1,6 +1,6 @@
 import { Package } from "@manuth/package-json-editor";
 import { CallSite } from "callsite";
-import pkgUp from "pkg-up";
+import { pkgUpSync } from "pkg-up";
 import upath from "upath";
 import stack from "v8-callsites";
 
@@ -63,7 +63,7 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     }
     else
     {
-        let packagePath = pkgUp.sync(
+        let packagePath = pkgUpSync(
             {
                 cwd: dirname(result.path)
             });

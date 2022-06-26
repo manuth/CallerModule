@@ -39,10 +39,10 @@
     "patchTypeScript": "ts-patch install"
   },
   "dependencies": {
-    "@manuth/package-json-editor": "^2.2.6",
+    "@manuth/package-json-editor": "^3.0.0",
     "@types/callsite": "^1.0.31",
     "@types/v8-callsites": "^1.2.0",
-    "pkg-up": "^3.1.0",
+    "pkg-up": "^4.0.0",
     "upath": "^2.0.1",
     "v8-callsites": "^1.2.1"
   },
