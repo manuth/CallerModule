@@ -1,8 +1,10 @@
 import { Package } from "@manuth/package-json-editor";
 import { CallSite } from "callsite";
-import pkgUp = require("pkg-up");
-import { basename, dirname } from "upath";
-import stack = require("v8-callsites");
+import { pkgUpSync } from "pkg-up";
+import upath from "upath";
+import stack from "v8-callsites";
+
+const { basename, dirname } = upath;
 
 /**
  * Gets the module that called a specified method at a specified stacktrace-level.
@@ -61,7 +63,7 @@ export function GetCallerModule(method?: number | (() => any), level?: number): 
     }
     else
     {
-        let packagePath = pkgUp.sync(
+        let packagePath = pkgUpSync(
             {
                 cwd: dirname(result.path)
             });
