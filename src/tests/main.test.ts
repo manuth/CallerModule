@@ -1,5 +1,5 @@
-import { strictEqual } from "assert";
-import { fileURLToPath } from "url";
+import { strictEqual } from "node:assert";
+import { fileURLToPath } from "node:url";
 import { Package } from "@manuth/package-json-editor";
 import upath from "upath";
 import { GetCallerModule } from "../index.js";
