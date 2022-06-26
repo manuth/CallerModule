@@ -5,13 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## CallerModule [Unreleased]
+
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.14...dev)
+
+## CallerModule v1.0.14
 ### Fixed
   - Vulnerabilities in dependencies
 
 ### Updated
   - All dependencies
 
-[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.13...dev)
+[Show differences](https://github.com/manuth/CallerModule/compare/v1.0.13...v1.0.14)
 
 ## CallerModule v1.0.13
 ### Fixed
