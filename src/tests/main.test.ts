@@ -1,7 +1,10 @@
 import { strictEqual } from "assert";
+import { fileURLToPath } from "url";
 import { Package } from "@manuth/package-json-editor";
-import { join } from "upath";
-import { GetCallerModule } from "..";
+import upath from "upath";
+import { GetCallerModule } from "../index.js";
+
+const { join } = upath;
 
 suite(
     "CallerModule",
@@ -12,6 +15,6 @@ suite(
             function test()
             {
                 strictEqual(GetCallerModule(test).name, "mocha");
-                strictEqual(GetCallerModule().name, new Package(join(__dirname, "..", "..", "package.json")).Name);
+                strictEqual(GetCallerModule().name, new Package(join(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "package.json")).Name);
             });
     });
