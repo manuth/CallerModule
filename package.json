@@ -1,6 +1,6 @@
 {
   "name": "@manuth/caller-module",
-  "version": "1.0.14",
+  "version": "2.0.0",
   "type": "module",
   "description": "Provides information about the caller of a method and its module",
   "author": "Manuel Thalmann <m@nuth.ch>",
